@@ -14,30 +14,32 @@ export const SavedPath = "/saved";
 export const VideoDetailsPath = "/videos/:id";
 export const NopageFoundPath='*';
 
+import type { ReactNode } from "react";
+
 export const PathArray = [
   {
     path: HomePath,
     name:"Home",
     component: <Home />,
-    icon:HomeIcon
+    icon:<HomeIcon/>
   },
   {
     path: TrendingPath,
     name:"Trending",
     component: <Trending />,
-    icon:TrendingIcon
+    icon:<TrendingIcon/>
   },
   {
     path: GamingPath,
     name:"Gaming",
     component: <Gaming />,
-    icon:GamingIcon
+    icon:<GamingIcon/>
   },
   {
     path: SavedPath,
     name:"SavedVideos",
     component: <SavedVideos />,
-    icon:SavedIcon
+    icon:<SavedIcon/>
   },
   {
     path: VideoDetailsPath,
@@ -52,4 +54,10 @@ export const PathArray = [
     icon:null
   }
 ];
+export type NavItem = {
+  path: string;
+  name: string;
+  component: ReactNode;
+  icon: ReactNode;
+};
 export const navItems = PathArray.filter(item => item.icon);

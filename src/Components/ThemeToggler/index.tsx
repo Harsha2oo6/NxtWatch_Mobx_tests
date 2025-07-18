@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { themeStore } from "../../Stores/ThemeStore/themeStore";
-import { Darkmodeicon, Lightmodeicon } from "../../Common/Icons";
+import { DarkmodeIcon,LightmodeIcon } from "../../Common/Icons";
 import { ThemeButton } from "./styledComponents";
 
 const ThemeTogler = observer(() => {
@@ -10,7 +10,7 @@ const ThemeTogler = observer(() => {
     <ThemeButton
       onClick={toggleMode}
     >
-      {themeStore.isDark ? Lightmodeicon : Darkmodeicon}
+      {themeStore.isDark ? <LightmodeIcon/> : <DarkmodeIcon/> }
     </ThemeButton>
   );
 });

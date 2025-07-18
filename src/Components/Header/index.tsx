@@ -1,6 +1,5 @@
 import { observer } from "mobx-react-lite";
 import { ActionsWrapper, HeaderWrapper, LogoImage, ProfileImg } from "./styledComponents";
-// import { loginStore } from "../../Stores/LoginStore/loginstore";
 import { useNavigate } from "react-router-dom";
 import { LightThemeLogo, ProfileImage } from "../../Common/Logos";
 import ThemeTogler from "../ThemeToggler";

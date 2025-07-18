@@ -1,15 +1,26 @@
-import { navItems } from "../../Constants/Paths";
+import { navItems, type NavItem } from "../../Constants/Paths";
 import NavlinkComponent from "../../Hocs/NavlinkComponent";
-import { SideNavbarWrapper } from "./styledComponents";
+import Footer from "../Footer";
+import { NavItemsWrapper, SideNavbarWrapper } from "./styledComponents";
+
+export const RenderNavlinks = ({ navItems }: { navItems: NavItem[] }) => {
+  return (
+    <>
+      {navItems.map((each) => (
+        <NavlinkComponent key={each.path} details={each} />
+      ))}
+    </>
+  );
+};
 
 const SideNavBar = () => {
+    
   return (
     <SideNavbarWrapper>
-      <nav>
-        {navItems.map((each) => {
-          return  <NavlinkComponent key={each.path} details={each}/> 
-        })}
-      </nav>
+      <NavItemsWrapper>
+        <RenderNavlinks navItems={navItems}/>
+      </NavItemsWrapper>
+      <Footer/>
     </SideNavbarWrapper>
   );
 };

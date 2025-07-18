@@ -10,5 +10,7 @@ width: 240px;
   overflow: hidden;
   background: #fff;
   z-index: 10;
-  border:2px solid blue
+`
+export const NavItemsWrapper=styled.nav`
+margin-top:30px
 `
