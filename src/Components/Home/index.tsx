@@ -1,17 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import { loginStore } from "../../LoginStore/loginstore";
+import { observer } from "mobx-react-lite";
+import { homeStore } from "../../Stores/HomeStore/homeStore";
 
-const Home = () => {
-    const navigate =useNavigate()
-    if(!loginStore.getToken()){
-        navigate('/login')
-    }
-
+const Home = observer(() => {
   return (
-    <>
-      <h1>this is home</h1>
-      <button onClick={()=>loginStore.logout()}>logout</button>
-    </>
+    <div>
+      <input
+        type="search"
+        value={homeStore.searchQuery}
+        onChange={(e) => homeStore.setSearchQuery(e.target.value)}
+      />
+      <button onClick={()=>homeStore.fetchVideos()}>Search</button>
+    </div>
   );
-};
+});
 export default Home;
