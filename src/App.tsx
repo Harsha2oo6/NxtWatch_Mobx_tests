@@ -8,6 +8,7 @@ import { themeStore } from "./Stores/ThemeStore/themeStore";
 import { observer } from "mobx-react-lite";
 
 const  App=observer(()=> {
+  document.title="NxtWatch"
   return (
     <>
     <ThemeProvider theme={{isDark:themeStore.isDark}}>

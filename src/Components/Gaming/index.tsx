@@ -3,7 +3,6 @@ import { observer } from "mobx-react-lite";
 import RouteHeader from "../../Common/RouteHeader";
 import { dashboard } from "../../Stores/Dashboard/dashboard";
 import { PageWrapper } from "../Home/styledWrapper";
-import { TrendingVideos } from "../Trending/styledComponents";
 import GamingView from "../GamingVideoCard";
 import Loader from "../../Common/Loader";
 import RenderFailure from "../../Common/FailurePage";
