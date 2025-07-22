@@ -1,7 +1,7 @@
 import { GamingIcon, HomeIcon, SavedIcon, TrendingIcon } from "../Common/Icons";
 import Gaming from "../Components/Gaming";
 import Home from "../Components/Home";
-import NopageFound from "../Components/NoPageFound";
+import NopageFound from "../Common/NoPageFound";
 import SavedVideos from "../Components/SavedVideos";
 import Trending from "../Components/Trending";
 import VideoDetails from "../Components/VideoDetails";
@@ -37,7 +37,7 @@ export const PathArray = [
   },
   {
     path: SavedPath,
-    name:"SavedVideos",
+    name:"Saved Videos",
     component: <SavedVideos />,
     icon:<SavedIcon/>
   },

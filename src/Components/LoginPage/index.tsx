@@ -13,8 +13,10 @@ import {
   InputWrapper,
   CheckBox,
   ShowPassWrapper,
+  LabelElement,
 } from "./styledComponents";
 import { themeStore } from "../../Stores/ThemeStore/themeStore";
+import { DarkThemeLogo, LightThemeLogo } from "../../Common/Images";
 
 const LoginPage = observer(() => {
   const [username, setUsername] = useState("");
@@ -35,11 +37,11 @@ const LoginPage = observer(() => {
       </Modetoggler>
       <FormWrapper onSubmit={handleLogin}>
         <LoginLogo
-          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+          src={themeStore.isDark ? DarkThemeLogo : LightThemeLogo}
           alt="Nxtwatch"
         />
         <InputWrapper>
-          <label htmlFor="username">USERNAME</label>
+          <LabelElement htmlFor="username">USERNAME</LabelElement>
           <LoginIputBar
             type="text"
             id="username"
@@ -49,7 +51,7 @@ const LoginPage = observer(() => {
           />
         </InputWrapper>
         <InputWrapper>
-          <label htmlFor="password">PASSWORD</label>
+          <LabelElement htmlFor="password">PASSWORD</LabelElement>
           <LoginIputBar
             type={loginStore.showPassword ? "text" : "password"}
             placeholder="Password"
@@ -64,7 +66,7 @@ const LoginPage = observer(() => {
             type="checkbox"
             onChange={() => loginStore.toggleShowPassword()}
           />
-          <label htmlFor="showpass">Show Password</label>
+          <LabelElement htmlFor="showpass">Show Password</LabelElement>
         </ShowPassWrapper>
         <LoginButton type="submit">Login</LoginButton>
         {loginStore.error && <ErrorTag>{loginStore.error}</ErrorTag>}

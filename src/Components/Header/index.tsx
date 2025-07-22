@@ -1,27 +1,39 @@
 import { observer } from "mobx-react-lite";
-import { ActionsWrapper, HeaderWrapper, LogoImage, ProfileImg } from "./styledComponents";
 import { useNavigate } from "react-router-dom";
-import { LightThemeLogo, ProfileImage } from "../../Common/Logos";
-import ThemeTogler from "../ThemeToggler";
+import {
+  HeaderWrapper,
+  LogoImage,
+  ProfileImg,
+  ActionsWrapper,
+} from "./styledComponents";
+import {
+  DarkThemeLogo,
+  LightThemeLogo,
+  ProfileImage,
+} from "../../Common/Images";
+import ThemeTogler from "../../Common/ThemeToggler";
 import LogoutPopup from "../LogoutPopup";
+import { themeStore } from "../../Stores/ThemeStore/themeStore";
+import MobileNavigator from "../MobileNavigator";
+
 const Header = observer(() => {
   const navigate = useNavigate();
+
   return (
     <HeaderWrapper>
       <LogoImage
-        height="40px"
-        width="150px"
         onClick={() => navigate("/")}
-        src={LightThemeLogo}
-        className="header-logo"
+        src={themeStore.isDark ? DarkThemeLogo : LightThemeLogo}
         alt="header-logo"
       />
       <ActionsWrapper>
         <ThemeTogler />
         <ProfileImg src={ProfileImage} alt="profile" />
-        <LogoutPopup/>
+        <MobileNavigator/>
+        <LogoutPopup />
       </ActionsWrapper>
     </HeaderWrapper>
   );
 });
+
 export default Header;

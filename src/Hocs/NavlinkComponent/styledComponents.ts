@@ -5,24 +5,35 @@ export const NavlinkWrapper = styled(NavLink)`
   text-decoration: none;
 `;
 export const NavIconWrapper = styled.div`
-font-size:21px;
-margin-right:12px`;
+  font-size: 21px;
+  margin-right: 13px;
+`;
 export const NavlinkContent = styled.div<{ $isActive?: boolean }>`
-padding:0px 30px;
+  background-color: ${({ $isActive, theme }) =>
+    $isActive
+      ? theme.isDark
+        ? "#444" // dark active
+        : "#e7e8e8" // light active
+      : theme.isDark
+      ? "transparent" // dark inactive
+      : "white"}; // light inactive
+  padding: 0px 30px;
   margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: 540;
   display: flex;
+  justify-content:start;
   align-items: center;
   height: 40px;
   width: 100%;
-  background-color: ${({ $isActive }) => ($isActive ? "#e7e8e8" : "white")};
-  color: black;
-  transition: background-color 0.3s ease;
+  color: ${({ theme }) => (theme.isDark ? "white" : "black")};
 
   &:hover {
-    background-color: #f2f1f1ff;
+    background-color: ${({ theme }) =>
+      theme.isDark ? "#cacacaff" : " #f2f1f1ff"};
+    color: ${({ theme }) => (theme.isDark ? "black" : "")};
   }
   div {
-    color: ${({ $isActive }) => ($isActive ? "red" : "black")};
+    color: ${({ $isActive, theme }) =>
+      $isActive ? "red" : theme.isDark ? "grey" : "black"};
   }
 `;

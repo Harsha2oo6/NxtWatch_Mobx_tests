@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { loginStore } from "../../Stores/LoginStore/loginstore";
 import type { ReactNode } from "react";
-import { ModalWrapper, PopupButton } from "./styledComponents";
+import { ModalWrapper, PopupButton, RowDiv, Sure } from "./styledComponents";
+import { MenuButton } from "../MobileNavigator/styledComponents";
+import { LogoutIcon } from "../../Common/Icons";
 
 const LogoutPopup = observer(() => {
   const navigate = useNavigate();
@@ -14,13 +16,14 @@ const LogoutPopup = observer(() => {
       trigger={
         <div>
           <PopupButton className="logout">Logout</PopupButton>
+          <MenuButton><LogoutIcon/></MenuButton>
         </div>
       }
       >
       {((close: ()=>void) => (
         <ModalWrapper>
-          <p>Are you sure you want to logout?</p>
-          <div >
+          <Sure>Are you sure you want to logout?</Sure>
+          <RowDiv>
             <PopupButton className="close" onClick={close} >
               Cancel
             </PopupButton>
@@ -32,7 +35,7 @@ const LogoutPopup = observer(() => {
             >
               Confirm
             </PopupButton>
-          </div>
+          </RowDiv>
         </ModalWrapper>
       )) as any as ReactNode}
     </Popup>

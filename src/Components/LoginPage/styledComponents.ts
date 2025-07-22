@@ -1,74 +1,103 @@
 import styled from "styled-components";
 
-export const FormWrapper = styled.form`
-  width: 300px;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 0 5px 0 grey;
-  // border: 2px solid red;
-`;
-export const LoginIputBar = styled.input`
-  height: 33px;
-  width: 100%;
-  border: 2px solid lightgrey;
-  border-radius: 5px;
-`;
-export const LoginLogo = styled.img`
-  width: 200px;
-  height: 50px;
-`;
-export const LoginButton = styled.button`
-  width: 80%;
-  height: 35px;
-  background-color: rgb(68, 119, 238);
-  color: white;
-  font-weight: 550;
-  border: 0;
-  border-radius: 10px;
-  &:hover {
-    background-color: rgb(52, 108, 239);
-  }
-`;
-export const Modetoggler = styled.button`
-  position: fixed;
-  top: 30px;
-  right: 30px;
-  border: 2px solid darkgray;
-  border-radius: 50%;
-  background-color: darkgray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-export const ErrorTag = styled.p`
-  color: red;
-  margin:0;
-  font-size: 13px;
-`;
 export const LoginPageWrapper = styled.div`
-width: 100vw;
+  width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-`
-export const InputWrapper=styled.div`
-display: flex;
+  background-color: ${({ theme }) => (theme.isDark ? "#1f201b" : "#f9f9f9")};
+`;
+
+export const FormWrapper = styled.form`
+  width: 350px;
+  padding: 40px 30px;
+  background-color: ${({ theme }) => (theme.isDark ? "#0f0f0f" : "#ffffff")};
+  border-radius: 12px;
+  box-shadow: ${({ theme }) =>
+    theme.isDark
+      ? "0px 4px 16px 0px rgba(0, 0, 0, 0.5)"
+      : "0px 4px 16px 0px rgba(0, 0, 0, 0.1)"};
+  display: flex;
   flex-direction: column;
-  width: 80%;
-  color: gray;
-`
-export const CheckBox=styled.input`
-`
+  gap: 20px;
+`;
+
+export const LoginLogo = styled.img`
+  width: 120px;
+  align-self: center;
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const LabelElement = styled.label`
+  font-size: 12px;
+  color: ${({ theme }) => (theme.isDark ? "#ffffff" : "#616e7c")};
+  font-weight: 600;
+`;
+
+export const LoginIputBar = styled.input`
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid #94a3b8;
+  background-color: transparent;
+  color: ${({ theme }) => (theme.isDark ? "#ffffff" : "#000000")};
+  font-size: 14px;
+  margin-top:6px;
+`;
+
 export const ShowPassWrapper = styled.div`
- margin-top: 10px;
-  font-size: 15px;
-  color: black;
-  font-weight: 550;
-`
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  align-self: start;
+  gap: 8px;
+  height:30px;
+  margin-top: -8px;
+  margin-bottom: -5px;
+`;
+
+export const CheckBox = styled.input`
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+`;
+
+export const LoginButton = styled.button`
+  height: 38px;
+  width: 100%;
+  border-radius: 6px;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+`;
+
+export const Modetoggler = styled.button`
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  padding: 8px;
+  border: none;
+  border-radius: 50%;
+  background-color: #d1d5db;
+  cursor: pointer;
+  font-size: 14px;
+`;
+
+export const ErrorTag = styled.p`
+  font-size: 12px;
+  color: red;
+  margin-top: -10px;
+  margin-bottom: 0;
+`;

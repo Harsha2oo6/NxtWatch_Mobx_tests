@@ -1,20 +1,20 @@
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from "../../Common/Icons";
-import { FooterWrapper, Icon, IconsWrapper } from "./styledComponents";
+import { FooterWrapper, H3, Icon, IconsWrapper, Para } from "./styledComponents";
 
 const Footer = () => {
   return (
     <FooterWrapper>
-      <h3>CONTACT US</h3>
+      <H3>CONTACT US</H3>
       <IconsWrapper>
-        <Icon><FacebookIcon /></Icon>
-        <Icon><TwitterIcon /></Icon>
-        <Icon><LinkedinIcon /></Icon>
+        <Icon className="facebook"><FacebookIcon /></Icon>
+        <Icon className="twitter"><TwitterIcon /></Icon>
+        <Icon className="linkedin"><LinkedinIcon /></Icon>
       </IconsWrapper>
-      <p>
+      <Para>
         Enjoy! Now to see your <br />
         channels and <br />
         recommendations!
-      </p>
+      </Para>
     </FooterWrapper>
   );
 };

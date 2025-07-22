@@ -12,13 +12,18 @@ class ThemeStore {
     }
     makeAutoObservable(this);
   }
-  toggleMode=()=> {
+  toggleMode = () => {
     this.theme = this.theme === "light" ? "dark" : "light";
 
     localStorage.setItem("theme", this.theme);
-  }
+  };
   get isDark() {
     return this.theme === "dark";
   }
 }
 export const themeStore = new ThemeStore();
+
+export interface MyTheme {
+  isDark: boolean;
+}
+
