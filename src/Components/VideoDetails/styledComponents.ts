@@ -42,7 +42,7 @@ export const DescriptionDate = styled.div`
   @media screen and (max-width: 576px) {
     justify-content: flex-start;
     gap: 20px;
-    width:50%
+    width:70%
   }
 `;
 
@@ -74,7 +74,8 @@ export const VideoDes = styled.p`
    @media screen and (max-width: 576px) {
     margin-left:-60px;
     font-weight:400;
-    font-size:18px
+    font-size:18px;
+    padding:10px ;
   }
 `;
 
@@ -128,7 +129,7 @@ export const LikeStatusButton = styled.button`
   }
 
   @media screen and (max-width: 576px) {
-    // width: 100%;
+    width: 100%;
   }
 `;
 
@@ -145,5 +146,6 @@ export const LikeDiv = styled.div`
   @media screen and (max-width: 576px) {
     font-size: 18px;
     justify-content: flex-start;
+    
   }
 `;
