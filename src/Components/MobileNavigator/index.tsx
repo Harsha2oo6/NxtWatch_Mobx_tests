@@ -19,7 +19,7 @@ const MobileNavigator = () => {
       <Menu>
         <MenuItem onClick={() => navigate('/')}>Home</MenuItem>
         <MenuItem onClick={() => navigate('/trending')}>Trending</MenuItem>
-        <MenuItem onClick={() => navigate('/savedvideos')}>Saved Videos</MenuItem>
+        <MenuItem onClick={() => navigate('/saved')}>Saved Videos</MenuItem>
       </Menu>
     </Popup>
   );
