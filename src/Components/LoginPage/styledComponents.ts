@@ -83,16 +83,20 @@ export const LoginButton = styled.button`
   }
 `;
 
-export const Modetoggler = styled.button`
+export const Modetoggler = styled.div`
+width:50px;
   position: fixed;
   top: 24px;
   right: 24px;
-  padding: 8px;
-  border: none;
+  padding: 2px;
   border-radius: 50%;
-  background-color: #d1d5db;
+  background-color: transparent;
+  box-shadow: 0px 0px 5px 0px grey;
   cursor: pointer;
   font-size: 14px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 `;
 
 export const ErrorTag = styled.p`

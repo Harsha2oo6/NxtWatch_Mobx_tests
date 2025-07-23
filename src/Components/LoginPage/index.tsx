@@ -17,6 +17,7 @@ import {
 } from "./styledComponents";
 import { themeStore } from "../../Stores/ThemeStore/themeStore";
 import { DarkThemeLogo, LightThemeLogo } from "../../Common/Images";
+import ThemeTogler from "../../Common/ThemeToggler";
 
 const LoginPage = observer(() => {
   const [username, setUsername] = useState("");
@@ -32,8 +33,8 @@ const LoginPage = observer(() => {
   };
   return (
     <LoginPageWrapper>
-      <Modetoggler onClick={() => themeStore.toggleMode()}>
-        {themeStore.isDark ? "Light" : "Dark"}
+      <Modetoggler >
+        <ThemeTogler/>
       </Modetoggler>
       <FormWrapper onSubmit={handleLogin}>
         <LoginLogo
