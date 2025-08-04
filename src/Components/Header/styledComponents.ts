@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
   width: 100%;
-  height: 9%;
+  height: 10%
   padding: 0 30px;
   display: flex;
   justify-content: space-between;
