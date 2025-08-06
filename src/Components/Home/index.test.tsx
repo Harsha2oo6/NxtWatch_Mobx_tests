@@ -83,7 +83,7 @@ describe("Home Page", () => {
     expect(await screen.findByTestId("failureview")).toBeInTheDocument();
   });
 
-  test("renders loader while loading", async () => {
+  test("renders loader while homeloading", async () => {
     vi.spyOn(dashboard, "fetchHomeVideos").mockImplementation(() => {
       runInAction(() => {
         dashboard.isHomeLoading = true;

@@ -77,7 +77,7 @@ const VideoDetails = observer(() => {
   };
 
   return (
-    <VideoDescription>
+    <VideoDescription data-testid="videoDetails">
       <VideoPlayer url={video_url} />
       <DescriptionTop>
         <VideoTitle>{title}</VideoTitle>

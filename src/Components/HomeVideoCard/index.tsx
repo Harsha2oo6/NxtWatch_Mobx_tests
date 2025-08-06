@@ -21,6 +21,7 @@ const HomeVideoCard = ({ details }: { details: Video }) => {
 
   return (
     <HomeVideoView
+    data-testid="homeVideoView"
       onClick={() => {
         navigate(`/videos/${id}`);
       }}
@@ -29,12 +30,12 @@ const HomeVideoCard = ({ details }: { details: Video }) => {
       <BottomRow>
         <ChannelProfile src={profile_image_url} alt="channel profile" />
         <VideoTexts>
-          <VideoTitle>{title}</VideoTitle>
+          <VideoTitle data-testid="homevideotitle">{title}</VideoTitle>
           <ChannelDetails>
-          <ChannelName>{name}</ChannelName>
+          <ChannelName data-testid="homevideoname">{name}</ChannelName>
           <VideoViews>
-            <ChannelName>{view_count} views</ChannelName>
-            <ChannelName>● {DurationFinder(published_at)}</ChannelName>
+            <ChannelName data-testid="homevideoviewcount">{view_count} views</ChannelName>
+            <ChannelName data-testid="homevideopublishedduration">● {DurationFinder(published_at)}</ChannelName>
           </VideoViews>
           </ChannelDetails>
         </VideoTexts>

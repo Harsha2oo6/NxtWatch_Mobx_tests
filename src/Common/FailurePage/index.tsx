@@ -8,7 +8,7 @@ import {
 import { themeStore } from '../../Stores/ThemeStore/themeStore';
 import { RetryButton } from '../NoVideosFound/styledComponents';
 
-type RenderFailureProps = {
+export type RenderFailureProps = {
   onRetry: () => void;
 };
 

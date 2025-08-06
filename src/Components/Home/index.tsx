@@ -20,25 +20,21 @@ import RenderFailure from "../../Common/FailurePage";
 export const RenderHomeVideos = observer(() => {
   if (dashboard.isHomeLoading) {
     return <Loader />;
-  }
-
-  if (dashboard.homeError !== "") {
+  } else if (dashboard.homeError !== "") {
     return <RenderFailure onRetry={() => dashboard.fetchHomeVideos(true)} />;
-  }
-
-  if (dashboard.homeVideosArray.length === 0) {
-    return <RenderNoVideosView />;
-  }
-
-  return (
-    <HomeVideos>
-      {dashboard.homeVideosArray.map((each: any) => (
-        <HomeVideoCard key={each.id} details={each} />
-      ))}
-    </HomeVideos>
-  );
+  } else if (dashboard.homeVideosArray.length === 0) {
+    return (
+      <RenderNoVideosView onRetry={() => dashboard.fetchHomeVideos(true)} />
+    );
+  } else
+    return (
+      <HomeVideos>
+        {dashboard.homeVideosArray.map((each: any) => (
+          <HomeVideoCard key={each.id} details={each} />
+        ))}
+      </HomeVideos>
+    );
 });
-
 
 const Home = observer(() => {
   useEffect(() => {
@@ -49,7 +45,6 @@ const Home = observer(() => {
 
   return (
     <PageWrapper>
-      
       <Advertisement />
       <SearchWrapper>
         <SearchInput
@@ -58,11 +53,14 @@ const Home = observer(() => {
           value={dashboard.searchQuery}
           onChange={(e) => dashboard.setSearchQuery(e.target.value)}
         />
-        <SearchButton data-testid="searchbutton" onClick={() => dashboard.fetchHomeVideos(true)}>
+        <SearchButton
+          data-testid="searchbutton"
+          onClick={() => dashboard.fetchHomeVideos(true)}
+        >
           <SearchIcon />
         </SearchButton>
       </SearchWrapper>
-        <RenderHomeVideos />
+      <RenderHomeVideos />
     </PageWrapper>
   );
 });

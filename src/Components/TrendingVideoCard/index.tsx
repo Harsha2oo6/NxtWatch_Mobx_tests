@@ -23,7 +23,7 @@ const TrendingVideoCard = ({ details }: Props) => {
   const { profile_image_url, name } = channel;
 
   return (
-    <TrendingCard onClick={() => navigate(`/videos/${id}`)}>
+    <TrendingCard data-testid="trendingVideoView" onClick={() => navigate(`/videos/${id}`)}>
       <TrendingThumbnail src={thumbnail_url} alt="thumbnail" />
 
       <TrendingVideoTexts>
@@ -36,7 +36,7 @@ const TrendingVideoCard = ({ details }: Props) => {
             <TrendingChannelName>{name}</TrendingChannelName>
             <VideoViews>
               <TrendingChannelName>{view_count} Views</TrendingChannelName>
-              <TrendingChannelName>● {DurationFinder(published_at)}</TrendingChannelName>
+              <TrendingChannelName data-testid="trendingvideopublishedduration">● {DurationFinder(published_at)}</TrendingChannelName>
             </VideoViews>
           </ChannelDetails>
         </div>

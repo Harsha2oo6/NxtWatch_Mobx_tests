@@ -11,22 +11,16 @@ import { GamingVideos } from "./styledComponents";
 export const RenderGamingVideos = observer(() => {
   if (dashboard.isGamingLoading) {
     return <Loader />;
-  }
-  if (dashboard.gamingError!==''){
-    return <RenderFailure onRetry={()=>dashboard.fetchGamingVideos(true)}/>
-  }
-
-  if (dashboard.gamingVideosArray.length === 0) {
-    return <p>No videos found</p>;
-  }
-
-  return (
-    <>
-      {dashboard.gamingVideosArray.map((each: any) => (
-        <GamingView key={each.id} details={each} />
-      ))}
-    </>
-  );
+  } else if (dashboard.gamingError !== "") {
+    return <RenderFailure onRetry={() => dashboard.fetchGamingVideos(true)} />;
+  } else
+    return (
+      <>
+        {dashboard.gamingVideosArray.map((each: any) => (
+          <GamingView key={each.id} details={each} />
+        ))}
+      </>
+    );
 });
 
 const Gaming = observer(() => {

@@ -2,7 +2,7 @@ import { NoSaveWrapper, NoSavedImage, Heading, Paragraph } from "./styledCompone
 
 const NoSavedVideos = () => {
   return (
-    <NoSaveWrapper>
+    <NoSaveWrapper data-testid="nosavedvideosview">
       <NoSavedImage
         src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
         alt="noSavedVideos"

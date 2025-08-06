@@ -10,10 +10,10 @@ const RouteHeader = ({ routeName }: Props) => {
 
   if (!routeDetails) return null;
 
-  const { name, icon } = routeDetails;
+  const { name , icon } = routeDetails;
 
   return (
-    <RouteHeaderWrapper>
+    <RouteHeaderWrapper data-testid="Routewrapper">
       <IconContainer >{icon}</IconContainer>
       <RouteName >{name}</RouteName>
     </RouteHeaderWrapper>

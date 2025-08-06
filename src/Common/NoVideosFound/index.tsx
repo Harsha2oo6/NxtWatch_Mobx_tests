@@ -1,4 +1,5 @@
 
+import type { RenderFailureProps } from '../FailurePage';
 import { NovideosImage } from '../Images';
 import {
   NoVideosWrapper,
@@ -8,7 +9,7 @@ import {
   RetryButton,
 } from './styledComponents';
 
-export const RenderNoVideosView = () => {
+export const RenderNoVideosView = ({onRetry}:RenderFailureProps) => {
   
   return (
     <NoVideosWrapper data-testid="novideosview">
@@ -18,7 +19,7 @@ export const RenderNoVideosView = () => {
       />
       <Heading>No Search results found</Heading>
       <SubText>Try different key words or remove search filter</SubText>
-      <RetryButton >Retry</RetryButton>
+      <RetryButton onClick={onRetry}>Retry</RetryButton>
     </NoVideosWrapper>
   );
 };
