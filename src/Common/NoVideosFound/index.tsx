@@ -11,7 +11,7 @@ import {
 export const RenderNoVideosView = () => {
   
   return (
-    <NoVideosWrapper>
+    <NoVideosWrapper data-testid="novideosview">
       <NoVideosImage
         src={NovideosImage}
         alt="noVideos"

@@ -13,7 +13,7 @@ const LoaderWrapper = styled.div`
 
 const Loader = () => {
   return (
-    <LoaderWrapper>
+    <LoaderWrapper data-testid="loader">
       <BeatLoader size={13} color={themeStore.theme === "dark" ? "white" : "#000"} />
     </LoaderWrapper>
   );

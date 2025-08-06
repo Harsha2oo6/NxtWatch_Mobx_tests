@@ -14,7 +14,7 @@ type RenderFailureProps = {
 
 const RenderFailure = ({ onRetry }: RenderFailureProps) => {
   return (
-    <FailureWrapper>
+    <FailureWrapper data-testid="failureview">
       <FailureImage
         src={
           themeStore.isDark

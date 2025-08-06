@@ -49,6 +49,7 @@ const Home = observer(() => {
 
   return (
     <PageWrapper>
+      
       <Advertisement />
       <SearchWrapper>
         <SearchInput
@@ -57,7 +58,7 @@ const Home = observer(() => {
           value={dashboard.searchQuery}
           onChange={(e) => dashboard.setSearchQuery(e.target.value)}
         />
-        <SearchButton onClick={() => dashboard.fetchHomeVideos(true)}>
+        <SearchButton data-testid="searchbutton" onClick={() => dashboard.fetchHomeVideos(true)}>
           <SearchIcon />
         </SearchButton>
       </SearchWrapper>

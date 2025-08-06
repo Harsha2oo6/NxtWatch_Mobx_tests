@@ -11,7 +11,7 @@ import { LogoImage } from "../Header/styledComponents";
 const Advertisement = () => {
   const [isMounted, setIsMounted] = useState(true);
   return isMounted ? (
-    <AdvertisementWrapper>
+    <AdvertisementWrapper data-testid="banner">
       <LogoImage height="40px" width="160px" src={LightThemeLogo} alt="logo" />
       <AddRemoveButton onClick={() => setIsMounted(false)}>x</AddRemoveButton>
 
