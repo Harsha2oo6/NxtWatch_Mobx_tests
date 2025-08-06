@@ -8,6 +8,7 @@ import LoginPage from ".";
 import { MemoryRouter } from "react-router-dom";
 import { loginStore } from "../../Stores/LoginStore/loginstore";
 import { vi } from "vitest";
+import { runInAction } from "mobx";
 
 beforeEach(() => {
   loginStore.username = "";
@@ -105,7 +106,10 @@ describe("LoginPage", () => {
     );
 
     const mockLogin = vi.spyOn(loginStore, "login").mockImplementation(() => {
-      loginStore.error = "Invalid username";
+      runInAction(() => {
+        loginStore.error = "Invalid username";
+      });
+
       return Promise.reject();
     });
 

@@ -99,6 +99,7 @@ class Dashboard {
       const result = await FetchDetails(`${HomeVideosApi}${this.searchQuery}`);
       runInAction(() => {
         this.homeVideosArray = result.videos ?? [];
+        this.homeError = "";
       });
     } catch (e) {
       this.homeError = "failed";
@@ -117,6 +118,7 @@ class Dashboard {
       const result = await FetchDetails(TrendingVideosApi);
       runInAction(() => {
         this.trendingVideosArray = result.videos ?? [];
+        this.trendingError = "";
       });
     } catch (e) {
       this.trendingError = "failed";
@@ -135,6 +137,7 @@ class Dashboard {
       const result = await FetchDetails(GamingVideosApi);
       runInAction(() => {
         this.gamingVideosArray = result.videos ?? [];
+        this.gamingError = "";
       });
     } catch (e) {
       this.gamingError = "failed";
@@ -146,7 +149,7 @@ class Dashboard {
   }
 
   async fetchVideoDetails(id: string) {
-    if (this.videoDetails?.id === id) return; 
+    if (this.videoDetails?.id === id) return;
 
     this.isDetailsLoading = true;
     try {

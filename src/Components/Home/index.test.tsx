@@ -3,6 +3,7 @@ import { dashboard } from "../../Stores/Dashboard/dashboard";
 import Home from ".";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { runInAction } from "mobx";
 
 beforeEach(() => {
   dashboard.homeError = "";
@@ -16,9 +17,13 @@ afterEach(() => {
 
 describe("Home Page", () => {
   test("fetches home videos initially with empty search query", () => {
-    const mockFetch = vi.spyOn(dashboard, "fetchHomeVideos").mockResolvedValue();
+    const mockFetch = vi
+      .spyOn(dashboard, "fetchHomeVideos")
+      .mockResolvedValue();
     render(<Home />);
 
+    expect(screen.getByTestId(/searchbutton/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/search/i)).toBeInTheDocument();
     expect(dashboard.searchQuery).toBe("");
     expect(mockFetch).toHaveBeenCalled();
   });
@@ -36,7 +41,9 @@ describe("Home Page", () => {
   });
 
   test("updates search query and calls fetch on search", async () => {
-    const mockFetch = vi.spyOn(dashboard, "fetchHomeVideos").mockResolvedValue();
+    const mockFetch = vi
+      .spyOn(dashboard, "fetchHomeVideos")
+      .mockResolvedValue();
     render(<Home />);
 
     const input = screen.getByPlaceholderText(/search/i);
@@ -52,7 +59,10 @@ describe("Home Page", () => {
 
   test("renders no videos found view", async () => {
     vi.spyOn(dashboard, "fetchHomeVideos").mockImplementation(() => {
-      dashboard.homeVideosArray = [];
+      runInAction(() => {
+        dashboard.homeVideosArray = [];
+      });
+
       return Promise.resolve();
     });
 
@@ -61,7 +71,13 @@ describe("Home Page", () => {
   });
 
   test("renders failure view on fetch error", async () => {
-    vi.spyOn(dashboard, "fetchHomeVideos").mockRejectedValue("failed");
+    vi.spyOn(dashboard, "fetchHomeVideos").mockImplementation(() => {
+      runInAction(() => {
+        dashboard.homeError = "some error";
+      });
+
+      return Promise.reject("fail");
+    });
 
     render(<Home />);
     expect(await screen.findByTestId("failureview")).toBeInTheDocument();
@@ -69,7 +85,10 @@ describe("Home Page", () => {
 
   test("renders loader while loading", async () => {
     vi.spyOn(dashboard, "fetchHomeVideos").mockImplementation(() => {
-      dashboard.isHomeLoading = true;
+      runInAction(() => {
+        dashboard.isHomeLoading = true;
+      });
+
       return Promise.resolve();
     });
 
