@@ -8,6 +8,7 @@ const ThemeTogler = observer(() => {
 
   return (
     <ThemeButton
+    data-testid="themeToggler"
       onClick={toggleMode}
     >
       {themeStore.isDark ? <LightmodeIcon/> : <DarkmodeIcon/> }

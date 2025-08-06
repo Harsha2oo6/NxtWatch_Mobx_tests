@@ -8,10 +8,11 @@ const MobileNavigator = () => {
 
   return (
     <Popup
+    
       position="bottom right"
       arrow={false}
       trigger={
-        <MenuButton>
+        <MenuButton data-testid="menuPopup">
           <AiOutlineMenu />
         </MenuButton>
       }

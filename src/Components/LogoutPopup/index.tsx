@@ -15,29 +15,36 @@ const LogoutPopup = observer(() => {
       modal
       trigger={
         <div>
-          <PopupButton className="logout">Logout</PopupButton>
-          <MenuButton><LogoutIcon/></MenuButton>
+          <PopupButton data-testid="logoutbtn" className="logout">
+            Logout
+          </PopupButton>
+          <MenuButton>
+            <LogoutIcon />
+          </MenuButton>
         </div>
       }
-      >
-      {((close: ()=>void) => (
-        <ModalWrapper>
-          <Sure>Are you sure you want to logout?</Sure>
-          <RowDiv>
-            <PopupButton className="close" onClick={close} >
-              Cancel
-            </PopupButton>
-            <PopupButton className="confirm"
-              onClick={() => {
-                loginStore.logout();
-                navigate("/login", { replace: true });
-              }}
-            >
-              Confirm
-            </PopupButton>
-          </RowDiv>
-        </ModalWrapper>
-      )) as any as ReactNode}
+    >
+      {
+        ((close: () => void) => (
+          <ModalWrapper data-testid="logoutpopup">
+            <Sure>Are you sure you want to logout?</Sure>
+            <RowDiv>
+              <PopupButton className="close" onClick={close}>
+                Cancel
+              </PopupButton>
+              <PopupButton
+                className="confirm"
+                onClick={() => {
+                  loginStore.logout();
+                  navigate("/login", { replace: true });
+                }}
+              >
+                Confirm
+              </PopupButton>
+            </RowDiv>
+          </ModalWrapper>
+        )) as any as ReactNode
+      }
     </Popup>
   );
 });
