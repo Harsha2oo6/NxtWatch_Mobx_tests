@@ -27,10 +27,13 @@ const LoginPage = observer(() => {
     navigate("/", { replace: true });
   }
   const handleLogin = async (e: FormEvent) => {
-    e.preventDefault();
-    console.log("inputs sent");
-    await loginStore.login(username, password);
-  };
+  e.preventDefault();
+  try {
+    await loginStore.login(username, password); 
+  } catch (e) {
+    // console.error("Login error caught in component:", e);
+  }
+};
   return (
     <LoginPageWrapper>
       <Modetoggler >
@@ -70,7 +73,7 @@ const LoginPage = observer(() => {
           <LabelElement htmlFor="showpass">Show Password</LabelElement>
         </ShowPassWrapper>
         <LoginButton type="submit">Login</LoginButton>
-        {loginStore.error && <ErrorTag>{loginStore.error}</ErrorTag>}
+        {loginStore.error?<ErrorTag data-testid="errorMsg">{loginStore.error}</ErrorTag>:null}
       </FormWrapper>
     </LoginPageWrapper>
   );

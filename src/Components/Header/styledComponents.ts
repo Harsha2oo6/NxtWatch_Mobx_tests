@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
   width: 100%;
-  height: 10%
-  padding: 0 30px;
+  height: 10%;
+  padding: 0px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => (theme.isDark ? "#1f201b" : "#ffffff")};
-  // border-bottom: 1px solid
+  // border-bottom: 1px solid white;
   //   ${({ theme }) => (theme.isDark ? "#313131" : "#e2e8f0")};
   position: sticky;
   top: 0;
@@ -42,18 +42,3 @@ export const ActionsWrapper = styled.div`
   
 `;
 
-// export const LogoutButton = styled.button`
-//   background-color: transparent;
-//   border: 1px solid ${({ theme }) => (theme.isDark ? "#ffffff" : "#3b82f6")};
-//   color: ${({ theme }) => (theme.isDark ? "#ffffff" : "#3b82f6")};
-//   padding: 6px 12px;
-//   border-radius: 4px;
-//   cursor: pointer;
-//   font-weight: 500;
-//   transition: all 0.2s ease-in-out;
-
-//   &:hover {
-//     background-color: ${({ theme }) =>
-//       theme.isDark ? "#ffffff10" : "#3b82f610"};
-//   }
-// `;
