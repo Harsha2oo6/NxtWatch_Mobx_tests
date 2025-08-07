@@ -35,7 +35,7 @@ const LoginPage = observer(() => {
   }
 };
   return (
-    <LoginPageWrapper>
+    <LoginPageWrapper data-testid="loginpage">
       <Modetoggler >
         <ThemeTogler/>
       </Modetoggler>

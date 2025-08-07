@@ -33,7 +33,7 @@ const Trending = observer(() => {
   }, []);
 
   return (
-    <PageWrapper>
+    <PageWrapper data-testid="trending">
       <RouteHeader routeName={"Trending"} />
       <TrendingVideos>
         <RenderTrendingVideos />

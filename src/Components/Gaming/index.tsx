@@ -31,7 +31,7 @@ const Gaming = observer(() => {
   }, []);
 
   return (
-    <PageWrapper>
+    <PageWrapper data-testid="gaming">
       <RouteHeader routeName="Gaming" />
       <GamingVideos>
         <RenderGamingVideos />

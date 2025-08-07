@@ -20,7 +20,7 @@ const Header = observer(() => {
   const navigate = useNavigate();
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper data-testid="Header">
       <LogoImage
         onClick={() => navigate("/")}
         src={themeStore.isDark ? DarkThemeLogo : LightThemeLogo}

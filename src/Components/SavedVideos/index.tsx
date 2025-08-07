@@ -20,7 +20,7 @@ export const RenderSavedVideos=()=>{
 }
 const SavedVideos = () => {
   return (
-    <PageWrapper>
+    <PageWrapper data-testid="saved">
       <RouteHeader routeName={"Saved Videos"} />
       <TrendingVideos>
         <RenderSavedVideos />
