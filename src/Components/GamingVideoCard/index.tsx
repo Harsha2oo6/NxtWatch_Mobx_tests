@@ -18,7 +18,7 @@ const GamingView = ({details}:{details:Video}) => {
     <GamingCard data-testid="gamingVideoView" onClick={() => navigate(`/videos/${id}`)}>
       <GamingThumbnail src={thumbnail_url}  alt="game" />
       <GamingTexts>
-        <GamingTitle>{title}</GamingTitle>
+        <GamingTitle data-testid="gamingvideotitle">{title}</GamingTitle>
         <GamingViews>{view_count} Watching Worldwide</GamingViews>
       </GamingTexts>
     </GamingCard>

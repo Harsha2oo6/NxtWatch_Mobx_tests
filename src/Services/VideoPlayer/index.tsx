@@ -1,16 +1,14 @@
 import ReactPlayer from "react-player";
 
-const VideoPlayer = ({url}:{url:string}) => {
-  console.log(url)
+const VideoPlayer = ({ url }: { url: string }) => {
   return (
-
-      <ReactPlayer
-        src={url}
-        controls
-        width='100%'
-        height='350px'
-      />
-    
+    <ReactPlayer
+      data-testid="videoPlayer"
+      src={url}
+      controls
+      width="100%"
+      height="350px"
+    />
   );
 };
 

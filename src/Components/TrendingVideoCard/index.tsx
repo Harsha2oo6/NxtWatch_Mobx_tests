@@ -30,7 +30,7 @@ const TrendingVideoCard = ({ details }: Props) => {
         <ChannelProfile src={profile_image_url} alt="channel profile" />
 
         <div>
-          <TrendingTitle>{title}</TrendingTitle>
+          <TrendingTitle data-testid="trendingvideotitle">{title}</TrendingTitle>
 
           <ChannelDetails>
             <TrendingChannelName>{name}</TrendingChannelName>
